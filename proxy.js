@@ -4,7 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Ganti URL target di sini
-const TARGET_URL = 'http://118.99.86.91:8880/com95pantiwaluyadotorg/jd/jadwaldokter';
+const TARGET_URL = 'http://118.99.86.91:8080/com95pantiwaluyadotorg/jd/jadwaldokter';
 
 app.get('/proxy', async (req, res) => {
   try {
