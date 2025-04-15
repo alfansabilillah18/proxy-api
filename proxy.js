@@ -1,22 +1,20 @@
-const express = require('express');
-const fetch = require('node-fetch');
-const app = express();
-const PORT = process.env.PORT || 3000;
+// proxy.js atau index.js
+import express from 'express';
+import fetch from 'node-fetch';
 
-// Ganti URL target di sini
+const app = express();
 const TARGET_URL = 'http://118.99.86.91:8080/com95pantiwaluyadotorg/jd/jadwaldokter';
 
-app.get('/proxy', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     const response = await fetch(TARGET_URL);
-    const data = await response.text(); // kalau JSON, bisa diganti .json()
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    const data = await response.text();
     res.send(data);
-  } catch (err) {
-    res.status(500).json({ error: 'Gagal mengambil data dari sumber.' });
+  } catch (error) {
+    res.status(500).json({ message: 'Gagal ambil data', error: error.message });
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Proxy server running on http://localhost:${PORT}`);
+app.listen(process.env.PORT || 3000, () => {
+  console.log('Server is running...');
 });
