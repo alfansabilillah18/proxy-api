@@ -1,6 +1,6 @@
-// proxy.js atau index.js
-import express from 'express';
-import fetch from 'node-fetch';
+// proxy.js
+const express = require('express');
+const fetch = require('node-fetch');
 
 const app = express();
 const TARGET_URL = 'http://118.99.86.91:8080/com95pantiwaluyadotorg/jd/jadwaldokter';
